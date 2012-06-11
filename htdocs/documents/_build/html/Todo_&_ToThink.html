@@ -1,0 +1,131 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>やること、考えること &mdash; Video_Platform_with_User_Comment 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Video_Platform_with_User_Comment 1 documentation" href="index.html" />
+    <link rel="prev" title="Expert Python Programming" href="expert_python.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="expert_python.html" title="Expert Python Programming"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Video_Platform_with_User_Comment 1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="expert_python.html"
+                        title="previous chapter">Expert Python Programming</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/Todo_&amp;_ToThink.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="id1">
+<h1>やること、考えること<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line">PCで動画投稿、視聴を行え、コメント、タグを付けられること。</div>
+<div class="line"><br /></div>
+<div class="line">ユーザIDでのログイン機能をもち、動画投稿、コメント投稿を行ったユーザの識別ができること。</div>
+<div class="line">→ログインはOauthで、ユーザの識別は（twitterNameでなく）twitterIDで。ログイン状態の継続はセッション機能で</div>
+<div class="line">→php-oauthライブラリ？</div>
+<div class="line"><br /></div>
+<div class="line">ランキング機能があること。条件、表示件数は不問。</div>
+<div class="line"><br /></div>
+<div class="line">自由入力による、動画検索機能があること。条件、表示件数は不問。ただし、タグ検索は必須。</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line">Webサーバ部はPHPで開発し、DBはMySQLを用いること。</div>
+<div class="line"><br /></div>
+<div class="line">任意のフレームワーク、ミドルウェア、及びそれを利用するための言語を利用可。ただし、意図的にPHPを避けるためのミドルウェアは利用しないこと。</div>
+<div class="line"><br /></div>
+<div class="line">ライセンスに関しては、公開、商用利用などをしない、個人利用前提とする。</div>
+<div class="line"><br /></div>
+<div class="line">動画再生、コメント表示の利用技術は不問。（例：Flash、html5、Silverlight）</div>
+<div class="line"><br /></div>
+<div class="line">動画は H.264 + AAC に変換して配信すること。</div>
+<div class="line">ffmpeg, PHP-ffmpegを採用。</div>
+<div class="line"><br /></div>
+<div class="line">ただし、ミドルウェアが変換に失敗するなどの事由は、許容する。</div>
+<div class="line"><br /></div>
+<div class="line">コメントは、入力時点の再生秒数と紐付けられ、動画ごとに保存するものとする。動画再生時は最新1000件以上が表示でき、再生秒数と連動して表示させること。コメントの表示方法、動き、デザインは、任意とする。動画は、１万件以上保存できる設計とすること。ただし、ストレージ容量は無視して良い。</div>
+<div class="line"><br /></div>
+<div class="line">検証に用いる動画は、１分前後程度のもので構わない（開発環境のストレージ容量の都合により）。</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="expert_python.html" title="Expert Python Programming"
+             >previous</a> |</li>
+        <li><a href="index.html">Video_Platform_with_User_Comment 1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, yife.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
