@@ -11,7 +11,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
    
-   expert_python
+   diary
    Todo_&_ToThink
 
 
