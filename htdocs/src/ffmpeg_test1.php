@@ -24,9 +24,19 @@ echo $video->hasAudio();
 */
 
 //サムネイルを取得
+/*
 $frame = $video->getFrame(100);
 $image = $frame->toGDImage();
 
 header('Content-Type: image/jpeg');
 imageJpeg($image,null,100);
 imageDestroy($image);
+*/
+
+//インストール済みコーデックの表示
+$toolkit = new PHPVideoToolkit('.');
+
+ $info = $toolkit->getFFmpegInfo();
+ echo '<pre>';
+ print_r($info); 
+ echo '</pre>'; 
