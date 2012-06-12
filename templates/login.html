@@ -7,7 +7,7 @@
     <script src="http://code.jquery.com/jquery.min.js"></script>
     <script src="http://yife.info/src/js/bootstrap.js"></script>
 
-    <title>嘘子ちゃん動画</title>
+    <title>ログイン: 嘘子ちゃん動画</title>
 </head>
 <body>
 
@@ -17,7 +17,7 @@
     <div class="container">
         <a class="brand" href="#">嘘子ちゃん動画</a>
         <ul class="nav">
-            <li class="active"><a href="#">トップページ</a></li>
+            <li class="active"><a href="index.php">トップページ</a></li>
             <li><a href="#">ランキング</a></li>
             <li><a href="#">アップロード</a></li>
         </ul>
@@ -27,17 +27,32 @@
             <input type="submit" class='btn' value="検索" />
         </form>
         <ul class="nav pull-right">
-            <li><a href="#">ログイン</a></li>
+            <li><a href="login.php">ログイン</a></li>
         </ul>
     </div>
   </div>
 </div>
 
 <!-- トップのナビゲーションバー部分 終了 -->
+{{if $error == true }}
+<div class="alert alert-error">
+  おやおや。。。ユーザ名かパスワードが間違っているみたいですよ？
+</div>
+{{/if}}
 
-{{$scalar}}<br>
-{{$sex.m}}<br>
-{{$sex.f}}
+<!-- ログインフォーム部分 -->
+<div class="offset4 span6">
+    <form class="well" action="login.php" method="POST">
+      <label>ユーザ名</label>
+      <input type="text" name="uname" class="span5" placeholder="あなたのなまえ">
+      <label>パスワード</label>
+      <input type="password" name="pwd" class="span5" placeholder="パスワード">
+      <span class="help-block">新規登録は<a href="#">こちらからどうぞ</a></span>
+      <button type="submit" class="btn">ログイン</button>
+    </form>
+</div>
+<!-- ログインフォーム部分 終了 -->
+
 
 
 </body>

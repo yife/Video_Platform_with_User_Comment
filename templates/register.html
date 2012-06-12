@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <link href="http://yife.info/src/css/bootstrap.css" rel="stylesheet"> <!--bootstrap本体-->
+    
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="http://yife.info/src/js/bootstrap.js"></script>
+
+    <title>新規登録: 嘘子ちゃん動画</title>
+</head>
+<body>
+
+<!-- トップのナビゲーションバー部分 -->
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+        <a class="brand" href="#">嘘子ちゃん動画</a>
+        <ul class="nav">
+            <li class="active"><a href="#">トップページ</a></li>
+            <li><a href="#">ランキング</a></li>
+            <li><a href="#">アップロード</a></li>
+        </ul>
+        <form class="navbar-form pull-left form-search offset1">
+            <i class="icon-search icon-white"></i>
+            <input type="search" class="span4" placeholder="キーワードを入れて検索">
+            <input type="submit" class='btn' value="検索" />
+        </form>
+        <ul class="nav pull-right">
+            <li><a href="#">ログイン</a></li>
+        </ul>
+    </div>
+  </div>
+</div>
+
+<!-- トップのナビゲーションバー部分 終了 -->
+
+{{if $error == true }}
+<div class="alert alert-error">
+  どこか空欄があるようですよ？
+</div>
+{{/if}}
+
+{{if $successfully_registered == 'success' }}
+<div class="alert alert-success">
+  ユーザ登録しました！ あなたのIDは{{$userID}}です。
+</div>
+{{/if}}
+
+{{if $successfully_registered == 'something_wrong' }}
+<div class="alert alert-error">
+  ユーザ登録できませんでした。すでに同じIDで登録されているとか、データベースの調子が悪いとか、星辰の位置が正しくないとか、そういう感じです。
+</div>
+{{/if}}
+
+<!-- 新規登録フォーム部分 -->
+<div class="offset4 span6">
+    <form class="well"  action="register.php" method="POST">
+    <span class="help-block">ユーザ名とパスワードを決めてください</span>
+      <label>ユーザ名</label>
+      <input type="text" name="uname" class="span5" placeholder="あなたのなまえ">
+      <label>パスワード</label>
+      <input type="password" name="pwd" class="span5" placeholder="パスワード">
+      <button type="submit" class="btn">登録</button>
+    </form>
+</div>
+<!-- 新規登録フォーム部分 終了 -->
+
+
+
+</body>
+</html>

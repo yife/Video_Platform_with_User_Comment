@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <link href="http://yife.info/src/css/bootstrap.css" rel="stylesheet"> <!--bootstrap本体-->
+    
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="http://yife.info/src/js/bootstrap.js"></script>
+
+    <title>動画アップロード: 嘘子ちゃん動画</title>
+</head>
+<body>
+
+<!-- トップのナビゲーションバー部分 -->
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+        <a class="brand" href="#">嘘子ちゃん動画</a>
+        <ul class="nav">
+            <li><a href="#">トップページ</a></li>
+            <li><a href="#">ランキング</a></li>
+            <li class="active"><a href="#">アップロード</a></li>
+        </ul>
+        <form class="navbar-form pull-left form-search offset1">
+            <i class="icon-search icon-white"></i>
+            <input type="search" class="span4" placeholder="キーワードを入れて検索">
+            <input type="submit" class='btn' value="検索" />
+        </form>
+        <ul class="nav pull-right">
+            <li><a href="#">ログイン</a></li>
+        </ul>
+    </div>
+  </div>
+</div>
+
+<!-- トップのナビゲーションバー部分 終了 -->
+
+<!-- アップロードフォーム部分 -->
+<div class="offset4 span8">
+    
+    <form class="form-horizontal" enctype="multipart/form-data" action="__URL__" method="POST">
+      <fieldset>
+        <legend>動画を投稿する</legend>
+        <div class="control-group">
+          <label class="control-label" for="input01">アップロードする<br>ファイルを選択</label>
+          <div class="controls">
+            <input type="hidden" name="MAX_FILE_SIZE" value="50000000" />
+            <input name="userfile" type="file" class="span5" />
+            <p class="help-block">すべてのファイルは強制的に再変換されます。</p>
+          </div>
+          <div class="form-actions">
+            <button type='submit' class="btn btn-primary">投稿する</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+</div>
+<!-- アップロードフォーム部分 終了 -->
+
+
+
+</body>
+</html>
