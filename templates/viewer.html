@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <link href="http://yife.info/src/css/bootstrap.css" rel="stylesheet"> <!--bootstrap本体-->
+    <link href="http://yife.info/src/css/viewer.css" rel="stylesheet"> <!--コメントつきプレイヤー用-->
+    
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="http://yife.info/src/js/bootstrap.js"></script>
+    <script src="http://yife.info/src/js/telopper.js"></script>
+
+    <title>動画視聴: 嘘子ちゃん動画</title>
+</head>
+<body>
+
+<!-- トップのナビゲーションバー部分 -->
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+        <a class="brand" href="http://yife.info/src/">嘘子ちゃん動画</a>
+        <ul class="nav">
+            <li><a href="index.php">トップページ</a></li>
+            <li><a href="#">ランキング</a></li>
+            <li><a href="upload.php">アップロード</a></li>
+        </ul>
+        <form class="navbar-form pull-left form-search offset1">
+            <i class="icon-search icon-white"></i>
+            <input type="search" class="span4" placeholder="キーワードを入れて検索">
+            <input type="submit" class='btn' value="検索" />
+        </form>
+        <ul class="nav pull-right">
+            <li><a href="login.php">ログイン</a></li>
+        </ul>
+    </div>
+  </div>
+</div>
+<!-- トップのナビゲーションバー部分 終了 -->
+
+<!-- 動画プレイヤー部分 -->
+<div class="" style="">
+    
+    <div class="offset4">
+        <!-- 動画タイトル -->
+        <span class="label label-info">タイトル</span>
+        <h2 id='video_title' style="color: #223161; text-shadow: 0px 1px 15px #c4c4c4; margin-bottom: 20px;">{{ $video_title }}</h2>
+    
+        <!-- 動画説明文 -->
+        <span class="label label-info">説明文</span>
+        <p id='video_desc' style="color: #223161; text-shadow: 0px 0px 2px #c4c4c4; margin-bottom: 20px;">{{ $video_desc }}</p>
+    </div>
+    
+    <!-- プレイヤー全体 -->
+    <div id="viewArea">
+		<video id="myVideo">
+			<source src={{$video_path}} >
+			
+			<p>HTML5のvideoに対応したブラウザをご利用下さい</p>
+		</video>
+		<div id="telop"></div>
+		<p>
+		  <i class="icon-play" id="playButton" onclick="playVideo()" alt="再生ボタン"></i>
+		</p>
+	</div>
+	
+	<!-- テロップデータ -->
+	<form style="visibility: hidden;">
+		<div class="subheader">テロップデータ</div>
+		<textarea id="telopCommand" cols="30" rows="15"></textarea>
+	</form>
+
+
+	
+
+
+
+
+</div>
+<!-- 動画プレイヤー部分 終了 -->
+
+
+
+</body>
+</html>

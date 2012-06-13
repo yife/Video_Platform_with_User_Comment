@@ -55,3 +55,6 @@ if( isset($result['video_number'])){
     //とくになにもしない！
     
 }
+
+//データベースへの接続を終了
+$dbh = null;
