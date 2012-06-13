@@ -15,11 +15,11 @@
 <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-        <a class="brand" href="#">嘘子ちゃん動画</a>
+        <a class="brand" href="http://yife.info/src/">嘘子ちゃん動画</a>
         <ul class="nav">
-            <li><a href="#">トップページ</a></li>
+            <li><a href="index.php">トップページ</a></li>
             <li><a href="#">ランキング</a></li>
-            <li class="active"><a href="#">アップロード</a></li>
+            <li class="active"><a href="upload.php">アップロード</a></li>
         </ul>
         <form class="navbar-form pull-left form-search offset1">
             <i class="icon-search icon-white"></i>
@@ -27,30 +27,44 @@
             <input type="submit" class='btn' value="検索" />
         </form>
         <ul class="nav pull-right">
-            <li><a href="#">ログイン</a></li>
+            <li><a href="login.php">ログイン</a></li>
         </ul>
     </div>
   </div>
 </div>
-
 <!-- トップのナビゲーションバー部分 終了 -->
 
 <!-- アップロードフォーム部分 -->
 <div class="offset4 span8">
     
-    <form class="form-horizontal" enctype="multipart/form-data" action="__URL__" method="POST">
+    <form class="form-horizontal" enctype="multipart/form-data" action="file_reciever.php" method="POST">
       <fieldset>
         <legend>動画を投稿する</legend>
         <div class="control-group">
           <label class="control-label" for="input01">アップロードする<br>ファイルを選択</label>
           <div class="controls">
             <input type="hidden" name="MAX_FILE_SIZE" value="50000000" />
-            <input name="userfile" type="file" class="span5" />
+            <input id='input01' name="userfile" type="file" class="span5" />
             <p class="help-block">すべてのファイルは強制的に再変換されます。</p>
           </div>
-          <div class="form-actions">
+        </div>
+        
+        <div class="control-group">
+            <label class="control-label" for='input02'>動画タイトルを入力</label>
+            <div class="controls">
+                <input id='input02' name='video_title' type='text' class="span5">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for='input03'>動画説明文を入力</label>
+            <div class="controls">
+                <textarea id='input03' name='video_desc' rows="5" class="span5"></textarea>
+            </div>
+        </div>
+        
+        <div class="form-actions">
             <button type='submit' class="btn btn-primary">投稿する</button>
-          </div>
         </div>
       </fieldset>
     </form>

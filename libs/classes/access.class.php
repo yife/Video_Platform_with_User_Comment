@@ -293,7 +293,7 @@ class flexibleAccess{
   {
     //if (defined('DEVELOPMENT_MODE') ) echo '<b>Query to execute: </b>'.$sql.'<br /><b>Line: </b>'.$line.'<br />';
 	$res = mysql_db_query($this->dbName, $sql, $this->dbConn);
-	if ( !res )
+	if ( !$res )
 		$this->error(mysql_error($this->dbConn), $line);
 	return $res;
   }
