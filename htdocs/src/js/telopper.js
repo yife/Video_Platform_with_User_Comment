@@ -59,6 +59,11 @@ function checkTelop(checkID){
 }
 // 映像を再生する
 function playVideo(){
+    
+    //再生ボタンをリピートボタンに変更
+    $("#playButton").removeClass('icon-play');
+    $("#playButton").addClass('icon-refresh');
+
 	if (timerID) clearInterval(timerID);
 	tID = [];
 	var tDiv = document.getElementById("telop");

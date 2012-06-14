@@ -11,10 +11,14 @@ $smarty = new MySmarty();
 require_once '../../libs/classes/access.class.php';
 $user = new flexibleAccess();
 
+//GETリクエストをサニタイズ
+$_GET['video_number'] = htmlspecialchars($_GET['video_number'], ENT_QUOTES);
+
+
 if( $user->is_loaded() ){
     //ここに、ユーザがログイン済みの時の処理を書く
     
-    if(isset($_GET['video_number'])){
+    if(isset( $_GET['video_number'])){
         //指定された動画へのパスを生成
         $video_path = 'http://yife.info/src/converted/'.$_GET['video_number'].'.mp4';
         
