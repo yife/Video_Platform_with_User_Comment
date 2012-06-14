@@ -7,7 +7,7 @@
     <script src="http://code.jquery.com/jquery.min.js"></script>
     <script src="http://yife.info/src/js/bootstrap.js"></script>
 
-    <title>動画アップロード: 嘘子ちゃん動画</title>
+    <title>再生回数ランキング: 嘘子ちゃん動画</title>
 </head>
 <body>
 
@@ -19,8 +19,8 @@
         <ul class="nav">
             <li><a href="index.php">トップページ</a></li>
             <li><a href="search.php">検索</a></li>
-            <li><a href="ranking.php">ランキング</a></li>
-            <li class="active"><a href="upload.php">アップロード</a></li>
+            <li class="active"><a href="ranking.php">ランキング</a></li>
+            <li><a href="upload.php">アップロード</a></li>
         </ul>
         <ul class="nav pull-right">
             <li><a href="login.php">ログイン</a></li>
@@ -31,12 +31,35 @@
 
 <!-- トップのナビゲーションバー部分 終了 -->
 
-<!-- アップロードフォーム部分 -->
-<div class="alert alert-info">
-  まだログインしていないようです。<a href='login.php'>まずはログインをどうぞ？</a>
-</div>
-<!-- アップロードフォーム部分 終了 -->
 
+<div class="offset4 span8">
+
+    <h1>視聴数ランキング</h1>
+    <p>全動画を視聴数順にソートして表示しています</p>
+
+</div>
+
+
+<hr style="clear:both;">
+
+<!-- ランキング -->
+<div class="offset4 span8">
+
+    {{foreach from=$video_data key=videos item=a_video}}
+    <a href="./viewer.php?video_number={{$a_video.video_number}}">
+        <div class="well">
+            <h2>{{$a_video.video_title}}</h2>
+            <p>{{$a_video.video_desc}}</p>
+            <p>タグ: {{$a_video.video_tags}}</p>
+            <p>視聴回数: {{$a_video.view_counter}}</p>
+        </div>
+    </a>
+    {{/foreach}}
+    
+
+</div>
+
+<!-- ランキング 終了 -->
 
 
 </body>

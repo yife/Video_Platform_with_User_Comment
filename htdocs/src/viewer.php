@@ -18,6 +18,11 @@ if( $user->is_loaded() ){
         //指定された動画へのパスを生成
         $video_path = 'http://yife.info/src/converted/'.$_GET['video_number'].'.mp4';
         
+        //指定された動画の視聴回数を1増やす
+        $sth = $dbh->prepare("UPDATE searchable_videos SET view_counter = view_counter + 1 WHERE video_number = :video_number");
+        $sth->bindParam(':video_number', $_GET['video_number']);
+        $sth->execute();
+        
         //指定された動画のタイトル・動画説明文を取得
         $sth = $dbh->prepare("SELECT * FROM `searchable_videos` WHERE video_number = :video_number");
         $sth->bindParam(':video_number', $_GET['video_number']);

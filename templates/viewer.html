@@ -9,6 +9,7 @@
     <script src="http://yife.info/src/js/bootstrap.js"></script>
     <script src="http://yife.info/src/js/telopper.js"></script>
     <script src="http://yife.info/src/js/post_comment_in_viewer.js"></script>
+    <script src="http://yife.info/src/js/post_tag_in_viewer.js"></script>
 
     <title>動画視聴: 嘘子ちゃん動画</title>
 </head>
@@ -21,14 +22,10 @@
         <a class="brand" href="http://yife.info/src/">嘘子ちゃん動画</a>
         <ul class="nav">
             <li><a href="index.php">トップページ</a></li>
-            <li><a href="#">ランキング</a></li>
+            <li><a href="search.php">検索</a></li>
+            <li><a href="ranking.php">ランキング</a></li>
             <li><a href="upload.php">アップロード</a></li>
         </ul>
-        <form class="navbar-form pull-left form-search offset1">
-            <i class="icon-search icon-white"></i>
-            <input type="search" class="span4" placeholder="キーワードを入れて検索">
-            <input type="submit" class='btn' value="検索" />
-        </form>
         <ul class="nav pull-right">
             <li><a href="login.php">ログイン</a></li>
         </ul>
@@ -48,10 +45,19 @@
         <!-- 動画説明文 -->
         <span class="label label-info">説明文</span>
         <p id='video_desc' style="color: #223161; text-shadow: 0px 0px 2px #c4c4c4; margin-bottom: 20px;">{{ $video_desc }}</p>
+        
+        <!-- 動画タグ -->
+        <span class="label label-info">タグ</span>
+        <p class="" id='video_tags' style="color: #223161; text-shadow: 0px 0px 2px #c4c4c4; margin-bottom: 20px;">{{ $video_tags }}</p>
+        <form class="" action="#" target="f1">
+            <input type="text" class="span3" name='tag_text' id='tag_text'>
+            <button type="submit" class="btn" name='post_tag' onClick="PostTag()">タグを追加。一度に一つずつしか追加できません。</button>
+        </form>
     </div>
     
     <!-- プレイヤー全体 -->
     <div id="viewArea">
+        
 		<video id="myVideo">
 			<source src={{$video_path}} >
 			

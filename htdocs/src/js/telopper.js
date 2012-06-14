@@ -1,9 +1,16 @@
 var telopData = [], tID = [], timerID;
-var telopURL = "http://yife.info/src/telop/35.json";	// テロップデータのURL
 var telopY = startY = -270;	// テロップの表示Y座標
 var telopRight = 400;	// テロップが登場する右端の座標
 var telopOffset  = 30;	// テロップの表示位置のオフセット
 var telopBottom = 150;	// テロップの下限の座標
+
+$(document).ready(function(){
+  // ページの読み込みが終わってから、テロップ用jsonファイルの読み込みを開始
+    var telopBaseURL = 'http://yife.info/src/telop/'
+    var video_number = $("p#video_number").text();
+    telopURL = telopBaseURL + video_number + '.json';
+});
+
 // ページが読み込まれたらテロップデータの読み込みと設定を行う
 window.addEventListener("load", function(){
 	$.get(telopURL, function(text){	// テロップデータを読み込む

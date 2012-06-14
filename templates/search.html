@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <link href="http://yife.info/src/css/bootstrap.css" rel="stylesheet"> <!--bootstrap本体-->
+    
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="http://yife.info/src/js/bootstrap.js"></script>
+
+    <title>検索: 嘘子ちゃん動画</title>
+</head>
+<body>
+
+<!-- トップのナビゲーションバー部分 -->
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+        <a class="brand" href="http://yife.info/src/">嘘子ちゃん動画</a>
+        <ul class="nav">
+            <li><a href="index.php">トップページ</a></li>
+            <li class="active"><a href="search.php">検索</a></li>
+            <li><a href="ranking.php">ランキング</a></li>
+            <li><a href="upload.php">アップロード</a></li>
+        </ul>
+        <ul class="nav pull-right">
+            <li><a href="login.php">ログイン</a></li>
+        </ul>
+    </div>
+  </div>
+</div>
+
+<!-- トップのナビゲーションバー部分 終了 -->
+
+<!-- 検索フォーム -->
+<div class="offset4 span8">
+
+<form class="well form-search" method="get" action="search.php">
+  <label>動画タイトル・説明文・タグから横断検索しますよ</label>
+  <input type="text" class="span6" placeholder="ここに検索する文字列をどうぞ" name='keyword'>
+  <button type="submit" class="btn btn-inverse">検索</button>
+</form>
+
+</div>
+
+<!-- 検索フォーム 終了 -->
+<hr style="clear:both;">
+<!-- 検索結果 -->
+<div class="offset4 span8">
+
+    {{foreach from=$video_data key=videos item=a_video}}
+    <a href="./viewer.php?video_number={{$a_video.video_number}}">
+        <div class="well">
+            <h2>{{$a_video.video_title}}</h2>
+            <p>{{$a_video.video_desc}}</p>
+            <p>{{$a_video.video_tags}}</p>
+        </div>
+    </a>
+    {{/foreach}}
+    
+
+</div>
+
+<!-- 検索結果 終了 -->
+
+
+</body>
+</html>
