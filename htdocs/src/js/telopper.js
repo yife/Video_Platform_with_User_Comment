@@ -1,9 +1,9 @@
 var telopData = [], tID = [], timerID;
 var telopURL = "http://yife.info/src/telop/35.json";	// テロップデータのURL
-var telopY = startY = 20;	// テロップの表示Y座標
+var telopY = startY = -270;	// テロップの表示Y座標
 var telopRight = 400;	// テロップが登場する右端の座標
 var telopOffset  = 30;	// テロップの表示位置のオフセット
-var telopBottom = 200;	// テロップの下限の座標
+var telopBottom = 150;	// テロップの下限の座標
 // ページが読み込まれたらテロップデータの読み込みと設定を行う
 window.addEventListener("load", function(){
 	$.get(telopURL, function(text){	// テロップデータを読み込む
@@ -63,3 +63,4 @@ function playVideo(){
 	timerID = setInterval("moveTelop()", 100);	// 0.1秒ごとにテロップを動かす
 	return false;
 }
+

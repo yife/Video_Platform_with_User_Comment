@@ -26,6 +26,8 @@ if( $user->is_loaded() ){
                 
         $smarty->assign('video_path', $video_path);
         $smarty->assign($video_data);
+        $smarty->assign($user->userData);
+        $smarty->assign('video_number', $_GET['video_number']);
         
         $smarty->display('viewer.html');
     }

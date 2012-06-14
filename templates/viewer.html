@@ -8,6 +8,7 @@
     <script src="http://code.jquery.com/jquery.min.js"></script>
     <script src="http://yife.info/src/js/bootstrap.js"></script>
     <script src="http://yife.info/src/js/telopper.js"></script>
+    <script src="http://yife.info/src/js/post_comment_in_viewer.js"></script>
 
     <title>動画視聴: 嘘子ちゃん動画</title>
 </head>
@@ -60,6 +61,11 @@
 		<p>
 		  <i class="icon-play" id="playButton" onclick="playVideo()" alt="再生ボタン"></i>
 		</p>
+		<form class="well" action="#" target="f1">
+            <input type="text" class="span7" name='comment_text' id='comment_text'>
+            <button type="submit" class="btn btn-inverse" name='post_comment' onClick="PostComment()">コメントを投稿</button>
+        </form>
+
 	</div>
 	
 	<!-- テロップデータ -->
@@ -69,15 +75,24 @@
 	</form>
 
 
-	
-
-
-
-
 </div>
 <!-- 動画プレイヤー部分 終了 -->
 
 
+<!-- ユーザ情報を埋め込み -->
+<div id='hidden_user_properties' width=0 height=0 style="visibility:hidden">
 
+    <p id='video_number'>{{$video_number}}</p>
+    <p id='username'>{{$username}}</p>
+    <p id='userID'>{{$userID}}</p>
+
+</div>
+
+<!-- フォームボタンクリックによるページ遷移を抑制 -->
+<iframe name="f1" width=0 height=0 style="visibility:hidden">
+
+
+    
+</iframe>
 </body>
 </html>
