@@ -15,7 +15,7 @@
 <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-        <a class="brand" href="http://yife.info/src/">検索: 嘘子ちゃん動画</a>
+        <a class="brand" href="http://yife.info/src/">嘘子ちゃん動画</a>
         <ul class="nav">
             <li class="active"><a href="index.php">トップページ</a></li>
             <li><a href="search.php">検索</a></li>
@@ -31,10 +31,34 @@
 
 <!-- トップのナビゲーションバー部分 終了 -->
 
-{{$scalar}}<br>
-{{$sex.m}}<br>
-{{$sex.f}}
+<div class="offset4 span8">
 
+    <h1>新着動画</h1>
+    <p>エンコードされたてほやほやの新着動画をどうぞ</p>
+
+</div>
+
+
+<hr style="clear:both;">
+
+<!-- ランキング -->
+<div class="offset4 span8">
+
+    {{foreach from=$video_data key=videos item=a_video}}
+    <a href="./viewer.php?video_number={{$a_video.video_number}}">
+        <div class="well">
+            <h2>{{$a_video.video_title}}</h2>
+            <p>{{$a_video.video_desc}}</p>
+            <p>タグ: {{$a_video.video_tags}}</p>
+            <p>視聴回数: {{$a_video.view_counter}}</p>
+        </div>
+    </a>
+    {{/foreach}}
+    
+
+</div>
+
+<!-- ランキング 終了 -->
 
 </body>
 </html>
