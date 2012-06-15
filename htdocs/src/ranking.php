@@ -12,6 +12,9 @@ $smarty = new MySmarty();
 require_once '../../libs/classes/access.class.php';
 $user = new flexibleAccess();
 
+
+$smarty->assign($user->userData);
+
 if( $user->is_loaded() ){
     //ここに、ユーザがログイン済みの時の処理を書く
     

@@ -17,16 +17,13 @@ $smarty = new MySmarty();
 require_once '../../libs/classes/access.class.php';
 $user = new flexibleAccess();
 
+$smarty->assign($user->userData);
+
 if( $user->is_loaded() ){
     //ここに、ユーザがログイン済みの時の処理を書く
     
-/*
-    //GETで検索キーワードを受け取って、空ならなにもないページを表示
-    if( $_GET['keyword'] == '' ){
-        $smarty->display('search_no_keyword_specified.html');
-        exit;
-    }
-*/
+    //サニタイズ
+    $_GET['keyword'] = htmlentities($_GET['keyword'], ENT_QUOTES, 'UTF-8');
     
     
     //検索キーワードをもとに全文検索
@@ -44,7 +41,7 @@ if( $user->is_loaded() ){
 }else{
     //ここに、ユーザが未ログインのときの処理を書く
     
-    $smarty->display('search_not_loggedin_yet.html');
+    $smarty->display('search_not_logged_in_yet.html');
     
 }
 

@@ -6,6 +6,7 @@
     
     <script src="http://code.jquery.com/jquery.min.js"></script>
     <script src="http://yife.info/src/js/bootstrap.js"></script>
+    <script src="http://yife.info/src/js/woopra.js"></script>
 
     <title>検索: 嘘子ちゃん動画</title>
 </head>
@@ -23,7 +24,7 @@
             <li><a href="upload.php">アップロード</a></li>
         </ul>
         <ul class="nav pull-right">
-            <li><a href="login.php">ログイン</a></li>
+            <li><a href="login.php">{{if $username != ''}} {{$username}} {{else}} ログイン{{/if}}</a></li>
         </ul>
     </div>
   </div>

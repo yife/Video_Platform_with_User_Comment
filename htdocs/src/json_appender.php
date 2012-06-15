@@ -13,6 +13,14 @@ if( isset($_GET['v_num']) && isset($_GET['id']) && isset($_GET['vpos']) && isset
     exit('insufficient parameters given');
 }
 
+//受け取ったリクエストをサニタイズ
+$_GET['v_num'] = (int)$_GET['v_num'];
+$_GET['id'] = (int)$_GET['id'];
+$_GET['vpos'] = (int)$_GET['vpos'];
+$_GET['text'] = htmlentities(strip_tags($_GET['text']) , ENT_QUOTES, 'UTF-8' );
+
+
+
 //指定されたjsonファイルがあるかどうか調べる
 $filepath = '/home/greenspa/htdocs/src/telop/'.$_GET['v_num'].'.json';
 

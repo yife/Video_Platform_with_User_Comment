@@ -11,6 +11,8 @@ $smarty = new MySmarty();
 require_once '../../libs/classes/access.class.php';
 $user = new flexibleAccess();
 
+$smarty->assign($user->userData);
+
 //GETリクエストをサニタイズ
 $_GET['video_number'] = htmlspecialchars($_GET['video_number'], ENT_QUOTES);
 

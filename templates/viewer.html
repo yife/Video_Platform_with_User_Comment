@@ -10,6 +10,7 @@
     <script src="http://yife.info/src/js/telopper.js"></script>
     <script src="http://yife.info/src/js/post_comment_in_viewer.js"></script>
     <script src="http://yife.info/src/js/post_tag_in_viewer.js"></script>
+    <script src="http://yife.info/src/js/woopra.js"></script>
 
     <title>動画視聴: 嘘子ちゃん動画</title>
 </head>
@@ -27,7 +28,7 @@
             <li><a href="upload.php">アップロード</a></li>
         </ul>
         <ul class="nav pull-right">
-            <li><a href="login.php">ログイン</a></li>
+            <li><a href="login.php">{{if $username != ''}} {{$username}} {{else}} ログイン{{/if}}</a></li>
         </ul>
     </div>
   </div>
@@ -51,7 +52,7 @@
         <p class="" id='video_tags' style="color: #223161; text-shadow: 0px 0px 2px #c4c4c4; margin-bottom: 20px;">{{ $video_tags }}</p>
         <form class="" action="#" target="f1">
             <input type="text" class="span3" name='tag_text' id='tag_text'>
-            <button type="submit" class="btn" name='post_tag' onClick="PostTag()">タグを追加。一度に一つずつしか追加できません。</button>
+            <button type="submit" class="btn" name='post_tag' onClick="PostTag()">タグを追加。スペースで区切ることで、一度に複数を追加できます。</button>
         </form>
     </div>
     

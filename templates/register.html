@@ -6,6 +6,7 @@
     
     <script src="http://code.jquery.com/jquery.min.js"></script>
     <script src="http://yife.info/src/js/bootstrap.js"></script>
+    <script src="http://yife.info/src/js/woopra.js"></script>
 
     <title>新規登録: 嘘子ちゃん動画</title>
 </head>
@@ -15,7 +16,7 @@
 <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-        <a class="brand" href="http://yife.info/src/">検索: 嘘子ちゃん動画</a>
+        <a class="brand" href="http://yife.info/src/">嘘子ちゃん動画</a>
         <ul class="nav">
             <li><a href="index.php">トップページ</a></li>
             <li><a href="search.php">検索</a></li>
@@ -23,7 +24,7 @@
             <li><a href="upload.php">アップロード</a></li>
         </ul>
         <ul class="nav pull-right">
-            <li><a href="login.php">ログイン</a></li>
+            <li><a href="login.php">{{if $username != ''}} {{$username}} {{else}} ログイン{{/if}}</a></li>
         </ul>
     </div>
   </div>
@@ -39,7 +40,8 @@
 
 {{if $successfully_registered == 'success' }}
 <div class="alert alert-success">
-  ユーザ登録しました！ あなたのIDは{{$userID}}です。
+  ユーザ登録しました！ あなたのIDは{{$userID}}です。<br>
+  <a href='login.php'>ログイン画面からログインしてください。</a>
 </div>
 {{/if}}
 
@@ -49,6 +51,7 @@
 </div>
 {{/if}}
 
+{{if  $successfully_registered != 'success' }}
 <!-- 新規登録フォーム部分 -->
 <div class="offset4 span6">
     <form class="well"  action="register.php" method="POST">
@@ -61,7 +64,7 @@
     </form>
 </div>
 <!-- 新規登録フォーム部分 終了 -->
-
+{{/if}}
 
 
 </body>

@@ -12,6 +12,7 @@ $smarty = new MySmarty();
 require_once '../../libs/classes/access.class.php';
 $user = new flexibleAccess();
 
+$smarty->assign($user->userData);
     
 //トップページだけは未ログインでも見られるようにする
 

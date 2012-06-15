@@ -7,6 +7,7 @@ $smarty = new MySmarty();
 require_once '../../libs/classes/access.class.php';
 $user = new flexibleAccess();
 
+$smarty->assign($user->userData);
 
 //すでにログイン済みかどうかチェック
 if( $user->is_loaded() ){
@@ -22,6 +23,10 @@ if( $user->is_loaded() ){
     $error = false;
     
     if ( !$user->login($_POST['uname'],$_POST['pwd'] )){  
+    
+        //サニタイズ
+        $_POST['uname'] = htmlentities($_POST['uname'],  ENT_QUOTES , 'UTF-8');
+        $_POST['pwd'] = htmlentities($_POST['pwd'],  ENT_QUOTES , 'UTF-8');
         
         //ユーザIDがセットされているのにログインできなかったら、IDかパスワードを間違えたと判断
         if( $_POST['uname'] ){

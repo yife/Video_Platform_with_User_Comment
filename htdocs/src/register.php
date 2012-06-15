@@ -10,6 +10,14 @@ $user = new flexibleAccess();
 
 $userID = 0;
 
+
+$smarty->assign($user->userData);
+
+//サニタイズ
+$_POST['uname'] = htmlentities($_POST['uname'], ENT_QUOTES, 'UTF-8');
+$_POST['pwd'] = htmlentities($_POST['pwd'], ENT_QUOTES, 'UTF-8');
+
+
 $data = array(  
 'username' => $_POST['uname'],  
 'password' => $_POST['pwd'],  
@@ -23,9 +31,6 @@ if( $_POST['uname'] and $_POST['pwd'] ){
 }else{
    
 }
-
-var_dump($data);
-var_dump($userID);
 
 //The method returns the userID of the new user or 0 if the user is not added  
 if ($userID==0){  

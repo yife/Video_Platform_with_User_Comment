@@ -6,6 +6,7 @@
     
     <script src="http://code.jquery.com/jquery.min.js"></script>
     <script src="http://yife.info/src/js/bootstrap.js"></script>
+    <script src="http://yife.info/src/js/woopra.js"></script>
 
     <title>嘘子ちゃん動画</title>
 </head>
@@ -23,7 +24,7 @@
             <li><a href="upload.php">アップロード</a></li>
         </ul>
         <ul class="nav pull-right">
-            <li><a href="login.php">ログイン</a></li>
+            <li><a href="login.php">{{if $username != ''}} {{$username}} {{else}} ログイン{{/if}}</a></li>
         </ul>
     </div>
   </div>
@@ -41,24 +42,29 @@
 
 <hr style="clear:both;">
 
-<!-- ランキング -->
-<div class="offset4 span8">
+<!-- 新着動画 -->
+<div class="offset3 span11">
 
     {{foreach from=$video_data key=videos item=a_video}}
-    <a href="./viewer.php?video_number={{$a_video.video_number}}">
-        <div class="well">
-            <h2>{{$a_video.video_title}}</h2>
-            <p>{{$a_video.video_desc}}</p>
-            <p>タグ: {{$a_video.video_tags}}</p>
-            <p>視聴回数: {{$a_video.view_counter}}</p>
-        </div>
-    </a>
+    <div class="eachvideo">
+        <a href="./viewer.php?video_number={{$a_video.video_number}}">
+            <div class="span3 stack twisted" style="float:left;">
+                <img src="http://yife.info/src/thumbnail/{{$a_video.video_number}}.jpg" width="220" height="165">
+            </div>
+            <div class="well span7" style="float:left;">
+                <h2>{{$a_video.video_title}}</h2>
+                <p>{{$a_video.video_desc}}</p>
+                <p>タグ: {{$a_video.video_tags}}</p>
+                <p>視聴回数: {{$a_video.view_counter}}</p>
+            </div>
+        </a>
+        <hr style="clear:both; visibility:hidden;">
+    </div>
     {{/foreach}}
     
-
 </div>
 
-<!-- ランキング 終了 -->
+<!-- 新着動画 終了 -->
 
 </body>
 </html>

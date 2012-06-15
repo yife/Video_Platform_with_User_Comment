@@ -18,6 +18,10 @@ if( isset($_GET['v_num']) && isset($_GET['tag']) ){
     exit('insufficient parameters given');
 }
 
+//サニタイズ
+$_GET['v_num'] = htmlentities($_GET['v_num'], ENT_QUOTES, 'UTF-8');
+$_GET['tag'] = htmlentities($_GET['tag'], ENT_QUOTES, 'UTF-8');
+
 //受け取った動画IDのタグ一覧を受け取る
 $stmt = "SELECT video_tags FROM searchable_videos WHERE video_number = :video_number";
 $sth = $dbh->prepare($stmt);
@@ -27,7 +31,7 @@ $video_data = $sth->fetch(PDO::FETCH_ASSOC);
 
 //DBに存在しない動画ならエラーを吐いて終了
 if ( $video_data == false){
-    exit('wrong v_num: the video which you specified is not exist.');
+    exit("wrong v_num: the video which you specified does not exist.");
 }
 
 $video_tags = $video_data['video_tags'];

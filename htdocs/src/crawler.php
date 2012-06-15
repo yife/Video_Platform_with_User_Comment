@@ -20,15 +20,28 @@ if( isset($result['video_number'])){
     //変換したあとのファイルパス
     $output_video_path = '/home/greenspa/htdocs/src/converted/'.$result['video_number'].'.mp4';
     
+    //サムネイルを書き出す先のパス
+    $output_thumbnail_path = '/home/greenspa/htdocs/src/thumbnail/'.$result['video_number'].'.jpg';
+    
+    //元動画からサムネイルを生成
+    //動画開始2秒から切り出し
+    $command_string = "ffmpeg -y -i {$source_video_path} -f mjpeg -ss 2 -s 648x486 -vframes 1 -an {$output_thumbnail_path}";
+    exec($command_string, $output);
+    
     //ffmpegで動画を変換する
     $command_string = "ffmpeg -y -i {$source_video_path} -vpre libx264-default -vcodec libx264 -r 60 -b 600k -s 648x486 -deinterlace -acodec libfaac -ar 44100 -ab 128k {$output_video_path}";
     exec($command_string, $output);
+    
+    //エンコードしおわったファイルを削除
+    unlink($source_video_path);
     
     //いまエンコードした動画の情報をデータベースから取ってくる
     $sth = $dbh->prepare("SELECT * FROM `upload_videos_not_converted_yet` WHERE auto_id = :auto_id");
     $sth->bindParam(':auto_id', $result['video_number']);
     $sth->execute();
     $result = $sth->fetch(PDO::FETCH_ASSOC);
+    
+    var_dump($result);
     
     //取ってきた動画の情報をsearchable_videosに追加
     $sth = $dbh->prepare("INSERT INTO searchable_videos( video_number, video_title, video_desc, upnushi_id) values( :video_number, :video_title, :video_desc, :upnushi_id)");

@@ -13,6 +13,8 @@ $dbh = new PDO('mysql:host=localhost;dbname=nicolive', 'file_reciever', 'W2Y7yPT
 $dbh->query("SET NAMES utf8;");
 
 
+$smarty->assign($user->userData);
+
 //アップロードされたファイルを、変換前動画保存場所へ移動する
 if (is_uploaded_file($_FILES["userfile"]["tmp_name"])) {
 
@@ -39,12 +41,17 @@ if (is_uploaded_file($_FILES["userfile"]["tmp_name"])) {
 
     if (move_uploaded_file($_FILES["userfile"]["tmp_name"], "./not_converted_yet/" . $last_inserted_id )) {
         chmod("not_converted_yet/" . ($last_inserted_id) , 0644);
-        echo ($last_inserted_id ) . "をアップロードしました。";
+        
+        $smarty->assign('display_message', ($last_inserted_id ) . "をアップロードしました。");
+        $smarty->display('file_reciever.html');
+
     } else {
-        echo "ファイルをアップロードできませんでした。。。";
+        $smarty->assign('display_message', "ファイルをアップロードできませんでした。。。");
+        $smarty->display('file_reciever.html');
       }
 } else {
-    echo "ファイルが選択されていません。";
+    $smarty->assign('display_message', "ファイルが選択されていません。");
+    $smarty->display('file_reciever.html');
 }
 
 
